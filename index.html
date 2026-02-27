@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sumeer Singh Rana — Cloud & Security Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --navy2: #162032;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cream: #f7f3ec;
+      --cream2: #ede8df;
+      --white: #ffffff;
+      --text-dark: #0d1b2a;
+      --text-mid: #3a4a5c;
+      --text-light: #7a8b9a;
+      --border: rgba(13,27,42,0.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 5rem;
+      background: rgba(247,243,236,0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 32px rgba(13,27,42,0.08); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-mid); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { padding: 0.55rem 1.4rem; background: var(--navy); color: var(--white) !important; border-radius: 2px; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+
+    .hero-left {
+      background: var(--navy);
+      padding: 10rem 5rem 5rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-left::before {
+      content: ''; position: absolute; top: -120px; right: -120px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
+    }
+    .hero-name em { font-style: normal; color: var(--gold-light); }
+    .hero-desc {
+      font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.9; max-width: 380px;
+      margin-bottom: 3rem; font-weight: 300;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease forwards 0.9s; }
+
+    .btn-gold {
+      display: inline-block; padding: 0.85rem 2rem; background: var(--gold); color: var(--navy);
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-decoration: none;
+      border-radius: 2px; transition: background 0.2s, transform 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-block; padding: 0.85rem 2rem; border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.75); font-size: 0.82rem; letter-spacing: 0.06em;
+      text-decoration: none; border-radius: 2px; transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-right {
+      background: var(--cream2); padding: 10rem 5rem 5rem;
+      display: flex; flex-direction: column; justify-content: center; gap: 1.2rem;
+    }
+    .hero-right-label {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-light); margin-bottom: 0.8rem;
+    }
+    .kpi-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .kpi {
+      background: var(--white); border: 1px solid var(--border); padding: 1.4rem;
+      border-radius: 3px; position: relative; overflow: hidden;
+      opacity: 0; animation: fadeUp 0.6s ease forwards;
+    }
+    .kpi:nth-child(1){animation-delay:0.6s} .kpi:nth-child(2){animation-delay:0.75s}
+    .kpi:nth-child(3){animation-delay:0.9s} .kpi:nth-child(4){animation-delay:1.05s}
+    .kpi::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+    .kpi-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.4rem; }
+    .kpi-label { font-size: 0.75rem; color: var(--text-light); line-height: 1.4; }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .chip {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 0.3rem 0.75rem;
+      background: var(--white); border: 1px solid var(--border); border-radius: 50px;
+      color: var(--text-mid); opacity: 0; animation: fadeIn 0.4s ease forwards;
+    }
+    .chip:nth-child(1){animation-delay:1.1s}.chip:nth-child(2){animation-delay:1.2s}
+    .chip:nth-child(3){animation-delay:1.3s}.chip:nth-child(4){animation-delay:1.4s}
+    .chip:nth-child(5){animation-delay:1.5s}.chip:nth-child(6){animation-delay:1.6s}
+    .chip:nth-child(7){animation-delay:1.7s}
+
+    section { padding: 7rem 5rem; }
+    .section-header { margin-bottom: 4rem; }
+    .section-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em;
+      color: var(--gold); text-transform: uppercase; margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.4; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--navy); line-height: 1.15; }
+
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: start; }
+    .about-body p { color: var(--text-mid); font-size: 1rem; line-height: 1.95; margin-bottom: 1.2rem; font-weight: 300; }
+    .about-body p strong { color: var(--navy); font-weight: 500; }
+    .about-sidebar { position: sticky; top: 8rem; }
+    .info-block { border-left: 3px solid var(--gold); padding-left: 1.4rem; margin-bottom: 2rem; }
+    .info-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.3rem; }
+    .info-value { font-size: 0.92rem; color: var(--navy); font-weight: 500; }
+    .info-sub { font-size: 0.8rem; color: var(--text-light); }
+
+    #projects { background: var(--cream); }
+    .projects-list { display: flex; flex-direction: column; gap: 2rem; }
+    .project-item {
+      display: grid; grid-template-columns: 80px 1fr auto; gap: 2rem; align-items: start;
+      background: var(--white); border: 1px solid var(--border); border-radius: 4px;
+      padding: 2.5rem; transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .project-item:hover { box-shadow: 0 12px 48px rgba(13,27,42,0.1); transform: translateY(-3px); }
+    .project-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--cream2); line-height: 1; user-select: none; }
+    .project-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .project-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .project-subtitle { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1rem; }
+    .project-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.4rem; font-weight: 300; }
+    .project-highlights { list-style: none; margin-bottom: 1.4rem; }
+    .project-highlights li { font-size: 0.85rem; color: var(--text-mid); padding: 0.28rem 0 0.28rem 1.2rem; position: relative; }
+    .project-highlights li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 0.25rem 0.65rem; background: var(--cream2); color: var(--text-mid); border-radius: 2px; }
+    .project-badge { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+    .badge-pill { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; padding: 0.35rem 0.8rem; border-radius: 50px; white-space: nowrap; }
+    .badge-pill.featured { background: var(--navy); color: var(--gold); }
+    .badge-pill.security { background: #eef2ff; color: #3730a3; }
+    .badge-pill.realtime { background: #f0fdf4; color: #166534; }
+
+    #skills { background: var(--navy); }
+    #skills .section-title { color: var(--white); }
+    #skills .section-eyebrow { color: var(--gold); }
+    #skills .section-eyebrow::after { background: var(--gold); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .skill-card { background: var(--navy2); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; padding: 2rem; transition: border-color 0.3s; }
+    .skill-card:hover { border-color: rgba(201,168,76,0.3); }
+    .skill-card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .skill-card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .skill-items { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .skill-items li { font-size: 0.85rem; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.6rem; }
+    .skill-items li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; opacity: 0.6; }
+
+    #experience { background: var(--white); }
+    .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .exp-col-title { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .exp-item { padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-period { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; color: var(--text-light); margin-bottom: 0.4rem; }
+    .exp-role { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+    .exp-org { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 0.8rem; }
+    .exp-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
+
+    #certs { background: var(--cream2); }
+    .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    .cert-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem 1.4rem; text-align: center; transition: box-shadow 0.3s, transform 0.3s; }
+    .cert-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.08); transform: translateY(-3px); }
+    .cert-icon-wrap { width: 52px; height: 52px; border-radius: 50%; background: var(--cream2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.4rem; }
+    .cert-name { font-size: 0.88rem; font-weight: 500; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.4; }
+    .cert-org { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold); letter-spacing: 0.08em; }
+
+    #contact { background: var(--navy); text-align: center; padding: 8rem 5rem; }
+    #contact .section-eyebrow { justify-content: center; }
+    #contact .section-eyebrow::after { display: none; }
+    #contact .section-title { color: var(--white); margin-bottom: 1.2rem; }
+    #contact .section-title em { font-style: normal; color: var(--gold-light); }
+    #contact p { color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto 3rem; font-size: 1rem; font-weight: 300; line-height: 1.8; }
+    .contact-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .contact-meta { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; }
+
+    footer { background: #08111c; text-align: center; padding: 1.8rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    .reveal { opacity:0; transform:translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    @media (max-width:1024px) {
+      nav { padding:1.2rem 2rem; } section { padding:5rem 2rem; }
+      #hero { grid-template-columns:1fr; } .hero-left { padding:9rem 2.5rem 4rem; } .hero-right { padding:4rem 2.5rem; }
+      .about-grid { grid-template-columns:1fr; gap:3rem; } .about-sidebar { position:static; }
+      .skills-grid { grid-template-columns:1fr 1fr; } .certs-grid { grid-template-columns:1fr 1fr; }
+      .exp-grid { grid-template-columns:1fr; } .project-item { grid-template-columns:1fr; } .project-num { display:none; }
+      .nav-links { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-logo">Sumeer Singh <span>Rana</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Cloud & Security Engineer</p>
+      <h1 class="hero-name">Building Secure<br/><em>Cloud Systems</em><br/>That Scale.</h1>
+      <p class="hero-desc">MSc Computing candidate at Sheffield Hallam University. Specialising in multi-cloud architecture, security automation, and resilient infrastructure design.</p>
+      <div class="hero-actions">
+        <a href="mailto:sumeersinghrana811@gmail.com" class="btn-gold">Get In Touch</a>
+        <a href="https://linkedin.com/in/sumeersinghrana" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+        <a href="https://github.com/sumeersinghrana" target="_blank" class="btn-ghost">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <p class="hero-right-label">At a Glance</p>
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-num">3+</div><div class="kpi-label">Production-grade cloud projects</div></div>
+        <div class="kpi"><div class="kpi-num">3</div><div class="kpi-label">Cloud platforms (AWS, Azure, OCI)</div></div>
+        <div class="kpi"><div class="kpi-num">95%</div><div class="kpi-label">Customer satisfaction at Tech Mahindra</div></div>
+        <div class="kpi"><div class="kpi-num">4</div><div class="kpi-label">Industry certifications earned</div></div>
+      </div>
+      <p class="hero-right-label" style="margin-top:1.5rem">Core Technologies</p>
+      <div class="skill-chips">
+        <span class="chip">Python</span><span class="chip">AWS</span><span class="chip">Django REST</span>
+        <span class="chip">JWT / RBAC</span><span class="chip">Linux</span><span class="chip">CI/CD</span>
+        <span class="chip">Oracle Cloud</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-body">
+        <div class="section-header">
+          <div class="section-eyebrow">About</div>
+          <h2 class="section-title">Engineering Cloud Systems<br/>With Purpose.</h2>
+        </div>
+        <p>I'm a <strong>Cloud & Security Engineer</strong> with hands-on experience designing, automating, and securing production-grade cloud environments across AWS and Oracle Cloud Infrastructure.</p>
+        <p>My work is driven by a belief that <strong>security and scalability are not trade-offs</strong> — they should be foundational properties of every system built. From JWT-secured REST APIs to intelligent multi-cloud orchestration engines, I build infrastructure that performs under pressure.</p>
+        <p>Currently deepening my expertise through an <strong>MSc in Computing at Sheffield Hallam University</strong>, where my dissertation explores advanced enhancement of multi-cloud architectures — combining real workload data, cost intelligence, and automated failover into a single control plane.</p>
+        <p>Previously at <strong>Tech Mahindra</strong>, I resolved over 50 technical issues daily — sharpening my ability to diagnose systems quickly, communicate clearly, and maintain quality under volume.</p>
+      </div>
+      <div class="about-sidebar reveal">
+        <div class="info-block"><div class="info-label">Location</div><div class="info-value">Greater Sheffield Area, UK</div></div>
+        <div class="info-block"><div class="info-label">Education</div><div class="info-value">MSc Computing</div><div class="info-sub">Sheffield Hallam University · 2024–2026</div></div>
+        <div class="info-block"><div class="info-label">Undergraduate</div><div class="info-value">B.Tech — EEC Engineering</div><div class="info-sub">Guru Nanak Institutions, India</div></div>
+        <div class="info-block"><div class="info-label">Dissertation</div><div class="info-value">Multi-Cloud Architecture</div><div class="info-sub">Advanced Enhancement of Cloud Environments</div></div>
+        <div class="info-block"><div class="info-label">Contact</div><div class="info-value">sumeersinghrana811@gmail.com</div><div class="info-sub">+44 7587 732132</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header">
+      <div class="section-eyebrow">Projects</div>
+      <h2 class="section-title">Selected Work</h2>
+    </div>
+    <div class="projects-list">
+      <div class="project-item reveal">
+        <div class="project-num">01</div>
+        <div class="project-content">
+          <div class="project-label">MSc Dissertation · Featured</div>
+          <h3 class="project-title">Advanced Multi-Cloud Control Plane</h3>
+          <p class="project-subtitle">Intelligent Cloud Environment Optimisation</p>
+          <p class="project-desc">An intelligent orchestration system that dynamically distributes workloads across AWS and Azure based on real-time performance, cost, and availability metrics. Built in Python with a custom scoring algorithm, the system eliminates manual cloud provider decisions and makes infrastructure self-optimising.</p>
+          <ul class="project-highlights">
+            <li>Python orchestration engine monitoring CPU, latency, cost & availability in real time</li>
+            <li>Provider abstraction layer unifying AWS and Azure APIs into one management interface</li>
+            <li>Automated scoring algorithm for cloud provider selection per workload</li>
+            <li>Resilience testing under simulated failure and overload conditions</li>
+            <li>Structured JSON reports and visual summaries for efficiency analysis</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Cloud APIs</span><span class="tag">Automation</span><span class="tag">Monitoring</span></div>
+        </div>
+        <div class="project-badge"><span class="badge-pill featured">Featured</span><span class="badge-pill security">Multi-Cloud</span></div>
+      </div>
+
+      <div class="project-item reveal">
+        <div class="project-num">02</div>
+        <div class="project-content">
+          <div class="project-label">Security Engineering</div>
+          <h3 class="project-title">Asset Security API</h3>
+          <p class="project-subtitle">Secure Cloud Asset Management System</p>
+          <p class="project-desc">A secure RESTful API for managing cloud assets (EC2, S3) with JWT authentication and Role-Based Access Control enforced at every endpoint. Designed with a production mindset — modular, tested, and structured for AWS EC2 + RDS deployment.</p>
+          <ul class="project-highlights">
+            <li>JWT-based authentication with Role-Based Access Control (RBAC)</li>
+            <li>Secure CRUD operations with permission enforcement and input validation</li>
+            <li>Endpoint testing via Postman with full token lifecycle management</li>
+            <li>Modular Django REST architecture ready for AWS EC2 + RDS deployment</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Django REST</span><span class="tag">JWT</span><span class="tag">SQLite</span><span class="tag">AWS-Ready</span><span class="tag">RBAC</span></div>
+        </div>
+        <div class="project-badge"><span class="badge-pill security">Security</span></div>
+      </div>
+
+      <div class="project-item reveal">
+        <div class="project-num">03</div>
+        <div class="project-content">
+          <div class="project-label">Resilience Engineering</div>
+          <h3 class="project-title">Real-Time CPS Security System</h3>
+          <p class="project-subtitle">Cyber-Physical Resilience Simulation</p>
+          <p class="project-desc">A full simulation of a Cyber-Physical System under active attack — injecting sensor manipulation and deadline violations to test a state-machine-driven security controller capable of autonomous anomaly detection and fail-safe mitigation.</p>
+          <ul class="project-highlights">
+            <li>State-machine security controller for real-time anomaly detection</li>
+            <li>Residual-based attack detection with automated fail-safe response</li>
+            <li>Simulated sensor manipulation and scheduling deadline violations</li>
+            <li>Real-time jitter tracking and reliability monitoring across experiment modes</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Real-Time Scheduling</span><span class="tag">State Machines</span><span class="tag">Security Monitoring</span><span class="tag">CPS</span></div>
+        </div>
+        <div class="project-badge"><span class="badge-pill realtime">Real-Time</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header">
+      <div class="section-eyebrow">Skills</div>
+      <h2 class="section-title">Technical Expertise</h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-card"><div class="skill-card-icon">🐍</div><div class="skill-card-title">Languages & Frameworks</div><ul class="skill-items"><li>Python</li><li>Bash / Shell Scripting</li><li>SQL</li><li>Django & Django REST Framework</li></ul></div>
+      <div class="skill-card"><div class="skill-card-icon">☁️</div><div class="skill-card-title">Cloud Platforms</div><ul class="skill-items"><li>AWS (EC2, S3, IAM, CloudWatch)</li><li>Microsoft Azure</li><li>Oracle Cloud Infrastructure</li><li>Multi-Cloud Architecture</li></ul></div>
+      <div class="skill-card"><div class="skill-card-icon">🔐</div><div class="skill-card-title">Security & Auth</div><ul class="skill-items"><li>JWT Authentication</li><li>Role-Based Access Control (RBAC)</li><li>Security Monitoring</li><li>Incident Response</li></ul></div>
+      <div class="skill-card"><div class="skill-card-icon">⚙️</div><div class="skill-card-title">Systems Engineering</div><ul class="skill-items"><li>Linux Administration</li><li>Real-Time Operating Systems</li><li>Scheduler Design</li><li>Jitter & Latency Monitoring</li></ul></div>
+      <div class="skill-card"><div class="skill-card-icon">🚀</div><div class="skill-card-title">DevOps & Tooling</div><ul class="skill-items"><li>Git & CI/CD Workflows</li><li>Postman (API Testing)</li><li>VS Code / PyCharm</li><li>Zendesk (Incident Logging)</li></ul></div>
+      <div class="skill-card"><div class="skill-card-icon">📈</div><div class="skill-card-title">Currently Developing</div><ul class="skill-items"><li>Kubernetes & Container Security</li><li>Terraform / CloudFormation</li><li>SIEM & Threat Detection</li><li>Advanced Cloud Orchestration</li></ul></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-header">
+      <div class="section-eyebrow">Background</div>
+      <h2 class="section-title">Experience & Education</h2>
+    </div>
+    <div class="exp-grid reveal">
+      <div>
+        <div class="exp-col-title">Work Experience</div>
+        <div class="exp-item">
+          <div class="exp-period">AUG 2024 — PRESENT</div>
+          <div class="exp-role">Floor Staff Lead</div>
+          <div class="exp-org">Cambridge Street Collective · Sheffield, UK</div>
+          <div class="exp-desc">Supports operations in a high-volume environment. Handles POS technical troubleshooting and cross-team coordination to maintain service continuity and efficiency.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-period">AUG 2022 — APR 2023</div>
+          <div class="exp-role">Customer Support Engineer</div>
+          <div class="exp-org">Tech Mahindra · Hyderabad, India</div>
+          <div class="exp-desc">Resolved 50+ technical issues daily across phone, chat, and email. Maintained 95%+ customer satisfaction while supporting cloud-based application onboarding and logging incidents in Zendesk.</div>
+        </div>
+      </div>
+      <div>
+        <div class="exp-col-title">Education</div>
+        <div class="exp-item">
+          <div class="exp-period">2024 — 2026</div>
+          <div class="exp-role">MSc Computing</div>
+          <div class="exp-org">Sheffield Hallam University · UK</div>
+          <div class="exp-desc">Dissertation: Advanced Enhancement of Cloud Environments in Multi-Cloud Architecture. Core modules in cloud systems, security engineering, and software architecture.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-period">Completed</div>
+          <div class="exp-role">B.Tech — Electrical, Electronics & Communication Engineering</div>
+          <div class="exp-org">Guru Nanak Institutions · India</div>
+          <div class="exp-desc">Engineering foundations in electronics, communications, and system design — directly informing current work in real-time and cyber-physical systems.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="section-header">
+      <div class="section-eyebrow">Certifications</div>
+      <h2 class="section-title">Industry Recognition</h2>
+    </div>
+    <div class="certs-grid reveal">
+      <div class="cert-card"><div class="cert-icon-wrap">☁️</div><div class="cert-name">Cloud Platform Job Simulation</div><div class="cert-org">Verizon</div></div>
+      <div class="cert-card"><div class="cert-icon-wrap">🛡️</div><div class="cert-name">Cyber Security Operations Simulation</div><div class="cert-org">Datacom</div></div>
+      <div class="cert-card"><div class="cert-icon-wrap">🔒</div><div class="cert-name">Cybersecurity Job Simulation</div><div class="cert-org">Mastercard</div></div>
+      <div class="cert-card"><div class="cert-icon-wrap">💻</div><div class="cert-name">Software Engineering Simulation</div><div class="cert-org">Commonwealth Bank</div></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-eyebrow" style="justify-content:center">Contact</div>
+    <h2 class="section-title">Let's Work<br/><em>Together.</em></h2>
+    <p>Open to cloud engineering roles, security projects, and research collaborations. Based in Sheffield — available for remote or hybrid opportunities across the UK.</p>
+    <div class="contact-row">
+      <a href="mailto:sumeersinghrana811@gmail.com" class="btn-gold">Send an Email</a>
+      <a href="https://linkedin.com/in/sumeersinghrana" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+      <a href="https://github.com/sumeersinghrana" target="_blank" class="btn-ghost">GitHub ↗</a>
+    </div>
+    <div class="contact-meta">
+      <span>📍 Greater Sheffield Area, UK</span>
+      <span>📞 +44 7587 732132</span>
+      <span>✉️ sumeersinghrana811@gmail.com</span>
+    </div>
+  </section>
+
+  <footer>© 2025 SUMEER SINGH RANA · CLOUD & SECURITY ENGINEER · SHEFFIELD, UK</footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
