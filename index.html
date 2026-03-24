@@ -143,6 +143,7 @@
       display: grid; grid-template-columns: 80px 1fr auto; gap: 2rem; align-items: start;
       background: var(--white); border: 1px solid var(--border); border-radius: 4px;
       padding: 2.5rem; transition: box-shadow 0.3s, transform 0.3s;
+      margin-bottom: 2rem;
     }
     .project-item:hover { box-shadow: 0 12px 48px rgba(13,27,42,0.1); transform: translateY(-3px); }
     .project-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--cream2); line-height: 1; user-select: none; }
@@ -155,11 +156,6 @@
     .project-highlights li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
     .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
     .tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 0.25rem 0.65rem; background: var(--cream2); color: var(--text-mid); border-radius: 2px; }
-    .project-badge { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
-    .badge-pill { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; padding: 0.35rem 0.8rem; border-radius: 50px; white-space: nowrap; }
-    .badge-pill.featured { background: var(--navy); color: var(--gold); }
-    .badge-pill.security { background: #eef2ff; color: #3730a3; }
-    .badge-pill.realtime { background: #f0fdf4; color: #166534; }
 
     /* Skills */
     #skills { background: var(--navy); }
@@ -169,7 +165,6 @@
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .skill-card { background: var(--navy2); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; padding: 2rem; transition: border-color 0.3s; }
     .skill-card:hover { border-color: rgba(201,168,76,0.3); }
-    .skill-card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
     .skill-card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
     .skill-items { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
     .skill-items li { font-size: 0.85rem; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.6rem; }
@@ -186,13 +181,6 @@
     .exp-org { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 0.8rem; }
     .exp-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
 
-    /* Certifications */
-    #certs { background: var(--cream2); }
-    .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-    .cert-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem 1.4rem; text-align: center; transition: box-shadow 0.3s; }
-    .cert-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.08); }
-    .cert-card img { max-width: 100%; height: auto; display: block; margin: 0 auto; margin-bottom: 1rem; }
-
     /* Contact */
     #contact { background: var(--navy); color: var(--white); }
     #contact p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem; font-weight: 300; }
@@ -206,21 +194,17 @@
       #hero { grid-template-columns: 1fr; }
       .hero-left, .hero-right { padding: 8rem 2rem 4rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .projects-list { flex-direction: column; }
       .exp-grid { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
-      .certs-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 480px) {
       nav { padding: 1rem 2rem; }
       .nav-links { display: none; }
       .skills-grid { grid-template-columns: 1fr; }
-      .certs-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
   <nav>
     <div class="nav-logo">Sumeer <span>Rana</span></div>
     <ul class="nav-links">
@@ -233,7 +217,6 @@
     <a href="mailto:sumeersinghrana811@gmail.com" class="nav-cta">Hire Me</a>
   </nav>
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hero-left">
       <div class="hero-eyebrow">Cloud & Security Engineer</div>
@@ -271,7 +254,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-header">
       <div class="section-eyebrow">Introduction</div>
@@ -299,260 +281,207 @@
     </div>
   </section>
 
-  <!-- WHAT I BRING -->
- <section id="value">
-  <div class="section-header">
-    <div class="section-eyebrow">Value</div>
-    <h2 class="section-title">What I Bring</h2>
-  </div>
+  <section id="projects">
+    <div class="section-header">
+        <div class="section-eyebrow">Portfolio</div>
+        <h2 class="section-title">Key Projects</h2>
+    </div>
+    
+    <div class="projects-list">
+        <div class="project-item">
+            <div class="project-num">01</div>
+            <div>
+              <div class="project-label">Multi-Cloud</div>
+              <h3 class="project-title">Multi-Cloud Control Plane</h3>
+              <p class="project-subtitle">Python · FastAPI · AWS · Azure · GCP</p>
+              <p class="project-desc">
+                Monitors and controls AWS, Azure, and GCP infrastructure with real-time metrics tracking.
+              </p>
+              <ul class="project-highlights">
+                <li>Tracks latency, cost, availability, and security metrics</li>
+                <li>Auto-generates severity classifications and reports</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Multi-Cloud</span>
+              </div>
+            </div>
+        </div>
 
-  <div style="max-width: 900px;">
-    <p class="project-desc" style="font-size:0.95rem;">
-      I bring strong hands-on experience in <strong>multi-cloud engineering</strong>, designing systems across AWS and Azure with a focus on workload distribution, failover strategies, and avoiding vendor lock-in. My approach is <strong>security-first</strong>, having built secure APIs using JWT authentication, token blacklisting, and role-based access control (RBAC) to enforce strict system access. I thrive in <strong>high-pressure environments</strong>, resolving 50+ technical issues daily, which has strengthened my debugging, communication, and system reliability skills. I focus on building scalable, secure, and production-ready cloud systems that perform efficiently in real-world conditions.
-    </p>
-  </div>
-</section>
+        <div class="project-item">
+            <div class="project-num">02</div>
+            <div>
+              <div class="project-label">Security</div>
+              <h3 class="project-title">Asset Security API</h3>
+              <p class="project-subtitle">Python · Django · JWT · RBAC</p>
+              <p class="project-desc">
+                Secure API system implementing authentication, authorization, and audit logging.
+              </p>
+              <ul class="project-highlights">
+                <li>JWT authentication with token blacklisting</li>
+                <li>RBAC enforced at database level</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Security</span>
+                <span class="tag">API</span>
+              </div>
+            </div>
+        </div>
 
-  <!-- PROJECTS -->
-  
- <div class="project-item">
-  <div class="project-num">01</div>
-  <div>
-    <div class="project-label">Multi-Cloud</div>
-    <h3 class="project-title">Multi-Cloud Control Plane</h3>
-    <p class="project-subtitle">Python · FastAPI · AWS · Azure · GCP</p>
-    <p class="project-desc">
-      Monitors and controls AWS, Azure, and GCP infrastructure with real-time metrics tracking.
-    </p>
-    <ul class="project-highlights">
-      <li>Tracks latency, cost, availability, and security metrics</li>
-      <li>Auto-generates severity classifications and reports</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">Multi-Cloud</span>
+        <div class="project-item">
+            <div class="project-num">03</div>
+            <div>
+              <div class="project-label">Cybersecurity</div>
+              <h3 class="project-title">IDS / Firewall Evasion Scanner</h3>
+              <p class="project-subtitle">Python · Nmap · Kali Linux · Scapy</p>
+              <p class="project-desc">
+                Automated IDS evasion and network scanning tool for penetration testing.
+              </p>
+              <ul class="project-highlights">
+                <li>Combines multiple Nmap scan types</li>
+                <li>Classifies ports and generates reports</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Cybersecurity</span>
+                <span class="tag">Networking</span>
+              </div>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-num">04</div>
+            <div>
+              <div class="project-label">Real-Time</div>
+              <h3 class="project-title">Real-Time CPS Security System</h3>
+              <p class="project-subtitle">Python · PID Control · State Machine</p>
+              <p class="project-desc">
+                Simulates industrial systems under cyber attack with real-time mitigation.
+              </p>
+              <ul class="project-highlights">
+                <li>Fault injection using PID control</li>
+                <li>5-state real-time mitigation system</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Real-Time</span>
+                <span class="tag">Security</span>
+              </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-  <div class="project-item">
-  <div class="project-num">02</div>
-  <div>
-    <div class="project-label">Security</div>
-    <h3 class="project-title">Asset Security API</h3>
-    <p class="project-subtitle">Python · Django · JWT · RBAC</p>
-    <p class="project-desc">
-      Secure API system implementing authentication, authorization, and audit logging.
-    </p>
-    <ul class="project-highlights">
-      <li>JWT authentication with token blacklisting</li>
-      <li>RBAC enforced at database level</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">Security</span>
-      <span class="tag">API</span>
-    </div>
-  </div>
-</div>
-  <div class="project-item">
-  <div class="project-num">03</div>
-  <div>
-    <div class="project-label">Cybersecurity</div>
-    <h3 class="project-title">IDS / Firewall Evasion Scanner</h3>
-    <p class="project-subtitle">Python · Nmap · Kali Linux · Scapy</p>
-    <p class="project-desc">
-      Automated IDS evasion and network scanning tool for penetration testing.
-    </p>
-    <ul class="project-highlights">
-      <li>Combines multiple Nmap scan types</li>
-      <li>Classifies ports and generates reports</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">Cybersecurity</span>
-      <span class="tag">Networking</span>
-    </div>
-  </div>
-</div>
-  <div class="project-item">
-  <div class="project-num">04</div>
-  <div>
-    <div class="project-label">Real-Time</div>
-    <h3 class="project-title">Real-Time CPS Security System</h3>
-    <p class="project-subtitle">Python · PID Control · State Machine</p>
-    <p class="project-desc">
-      Simulates industrial systems under cyber attack with real-time mitigation.
-    </p>
-    <ul class="project-highlights">
-      <li>Fault injection using PID control</li>
-      <li>5-state real-time mitigation system</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">Real-Time</span>
-      <span class="tag">Security</span>
-    </div>
-  </div>
-</div>
-  <!-- SKILLS -->
+  </section>
+
   <section id="skills">
-  <div class="section-header">
-    <div class="section-eyebrow">Skills</div>
-    <h2 class="section-title">Tech Stack & Tools</h2>
-  </div>
-
-  <div class="skills-grid">
-
-    <!-- CLOUD -->
-    <div class="skill-card">
-      <div class="skill-card-title">Cloud & Multi-Cloud</div>
-      <ul class="skill-items">
-        <li>AWS (EC2, S3, IAM, CloudWatch) — Production Systems</li>
-        <li>Microsoft Azure — Multi-Cloud Deployments</li>
-        <li>Google Cloud Platform — Monitoring & Integration</li>
-        <li>Multi-Cloud Architecture & Control Plane Design</li>
-      </ul>
+    <div class="section-header">
+      <div class="section-eyebrow">Skills</div>
+      <h2 class="section-title">Tech Stack & Tools</h2>
     </div>
-
-    <!-- SECURITY -->
-    <div class="skill-card">
-      <div class="skill-card-title">Security & Networking</div>
-      <ul class="skill-items">
-        <li>JWT Authentication & Token Blacklisting</li>
-        <li>Role-Based Access Control (RBAC)</li>
-        <li>Network Scanning (Nmap, Scapy)</li>
-        <li>IDS / Firewall Evasion Techniques</li>
-      </ul>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">Cloud & Multi-Cloud</div>
+        <ul class="skill-items">
+          <li>AWS (EC2, S3, IAM, CloudWatch)</li>
+          <li>Microsoft Azure Deployments</li>
+          <li>GCP Monitoring & Integration</li>
+          <li>Multi-Cloud Architecture</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Security & Networking</div>
+        <ul class="skill-items">
+          <li>JWT & Token Blacklisting</li>
+          <li>Role-Based Access Control</li>
+          <li>Network Scanning (Nmap, Scapy)</li>
+          <li>IDS / Firewall Evasion</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Programming & APIs</div>
+        <ul class="skill-items">
+          <li>Python Automation</li>
+          <li>Django & FastAPI</li>
+          <li>Node.js & Express</li>
+          <li>REST API Design</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">DevOps & Infra</div>
+        <ul class="skill-items">
+          <li>Terraform (IaC)</li>
+          <li>Docker Containerization</li>
+          <li>Kubernetes Orchestration</li>
+          <li>CI/CD Pipelines</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Systems</div>
+        <ul class="skill-items">
+          <li>PID Control Systems</li>
+          <li>State Machine Design</li>
+          <li>Real-Time Monitoring</li>
+          <li>Fault Injection</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Tools</div>
+        <ul class="skill-items">
+          <li>Git & GitHub</li>
+          <li>Linux (Kali, Ubuntu)</li>
+          <li>Socket.io</li>
+          <li>Logging Systems</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <!-- PROGRAMMING -->
-    <div class="skill-card">
-      <div class="skill-card-title">Programming & APIs</div>
-      <ul class="skill-items">
-        <li>Python — Automation, Monitoring, Security Tools</li>
-        <li>Django & FastAPI — Secure Backend APIs</li>
-        <li>Node.js & Express — Real-Time Systems</li>
-        <li>REST API Design & Integration</li>
-      </ul>
+  <section id="experience">
+    <div class="section-header">
+      <div class="section-eyebrow">Experience</div>
+      <h2 class="section-title">Work History</h2>
     </div>
-
-    <!-- DEVOPS -->
-    <div class="skill-card">
-      <div class="skill-card-title">DevOps & Infrastructure</div>
-      <ul class="skill-items">
-        <li>Terraform — Infrastructure as Code</li>
-        <li>Docker — Containerization</li>
-        <li>Kubernetes — Container Orchestration</li>
-        <li>CI/CD Pipelines & Automation</li>
-      </ul>
-    </div>
-
-    <!-- REAL-TIME / SYSTEMS -->
-    <div class="skill-card">
-      <div class="skill-card-title">Systems & Real-Time</div>
-      <ul class="skill-items">
-        <li>PID Control Systems (CPS Project)</li>
-        <li>State Machine Design</li>
-        <li>Real-Time Monitoring & Scheduling</li>
-        <li>Fault Injection & System Simulation</li>
-      </ul>
-    </div>
-
-    <!-- TOOLS -->
-    <div class="skill-card">
-      <div class="skill-card-title">Tools & Collaboration</div>
-      <ul class="skill-items">
-        <li>Git & GitHub — Version Control</li>
-        <li>Linux (Kali, Ubuntu)</li>
-        <li>Socket.io — Real-Time Communication</li>
-        <li>Monitoring & Logging Systems</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-  <!-- EXPERIENCE -->
- <section id="experience">
-  <div class="section-header">
-    <div class="section-eyebrow">Experience</div>
-    <h2 class="section-title">Work History</h2>
-  </div>
-
-  <div class="exp-grid">
-
-    <!-- LEFT COLUMN -->
-    <div>
-      <div class="exp-col-title">Professional</div>
-
-      <!-- Cybersecurity Intern -->
-      <div class="exp-item">
-        <div class="exp-period">March 2024 – Present</div>
-        <div class="exp-role">Cybersecurity Intern</div>
-        <div class="exp-org">Future Interns, Sheffield, UK</div>
-        <div class="exp-desc">
-          Gaining hands-on experience in real-world cybersecurity concepts including threat analysis and risk assessment. 
-          Working with industry-standard tools and vulnerability awareness techniques while strengthening knowledge of 
-          cloud security and secure system practices.
+    <div class="exp-grid">
+      <div>
+        <div class="exp-col-title">Professional</div>
+        <div class="exp-item">
+          <div class="exp-period">March 2024 – Present</div>
+          <div class="exp-role">Cybersecurity Intern</div>
+          <div class="exp-org">Future Interns, Sheffield, UK</div>
+          <div class="exp-desc">Focusing on threat analysis, cloud security, and industry-standard vulnerability techniques.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-period">March 2024 – Present</div>
+          <div class="exp-role">Independent Engineer</div>
+          <div class="exp-org">Self-Employed</div>
+          <div class="exp-desc">Delivered projects in multi-cloud orchestration and secure REST APIs alongside MSc studies.</div>
         </div>
       </div>
-
-      <!-- Independent Engineer -->
-      <div class="exp-item">
-        <div class="exp-period">March 2024 – Present</div>
-        <div class="exp-role">Independent Software & Security Engineer</div>
-        <div class="exp-org">Self-Employed</div>
-        <div class="exp-desc">
-          Designed and built full-stack software and cybersecurity projects alongside MSc studies. 
-          Delivered projects including multi-cloud orchestration systems, secure REST APIs, IDS evasion tools, 
-          real-time CPS simulations, and fault management systems.
+      <div>
+        <div class="exp-col-title">Previous Roles</div>
+        <div class="exp-item">
+          <div class="exp-period">August 2023 – Present</div>
+          <div class="exp-role">Floor Staff Lead</div>
+          <div class="exp-org">CSC, Sheffield, UK</div>
+          <div class="exp-desc">Leading operations for 300+ customers daily and managing staff coordination.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-period">2020 – 2023</div>
+          <div class="exp-role">Customer Support Engineer</div>
+          <div class="exp-org">Tech Mahindra, India</div>
+          <div class="exp-desc">Resolved 50+ daily technical issues involving cloud apps and system connectivity.</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- RIGHT COLUMN -->
-    <div>
-      <div class="exp-col-title">Previous Roles</div>
-
-      <!-- Floor Staff Lead -->
-      <div class="exp-item">
-        <div class="exp-period">August 2023 – Present</div>
-        <div class="exp-role">Floor Staff Lead</div>
-        <div class="exp-org">Cambridge Street Collective, Sheffield, UK</div>
-        <div class="exp-desc">
-          Led daily operations serving 300+ customers in a fast-paced multi-vendor environment. 
-          Managed staff scheduling, real-time operational decisions, and acted as first point of contact 
-          for escalations while coordinating communication across teams.
-        </div>
-      </div>
-
-      <!-- Tech Mahindra -->
-      <div class="exp-item">
-        <div class="exp-period">August 2020 – April 2023</div>
-        <div class="exp-role">Customer Support Engineer</div>
-        <div class="exp-org">Tech Mahindra, India</div>
-        <div class="exp-desc">
-          Resolved 50+ technical issues daily via phone, chat, and email, achieving high customer satisfaction. 
-          Troubleshot access issues, software failures, and connectivity problems, while assisting users in 
-          cloud applications and contributing to internal documentation and knowledge base systems.
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-header">
       <div class="section-eyebrow">Get In Touch</div>
       <h2 class="section-title">Contact Me</h2>
     </div>
-    <p>
-      Actively seeking Cloud, DevOps, or Security Engineer roles across the UK. 
-      Open to graduate and entry-level opportunities, with availability for immediate start.
-    </p>
+    <p>Actively seeking Cloud, DevOps, or Security Engineer roles across the UK.</p>
     <p>Email: <a href="mailto:sumeersinghrana811@gmail.com">sumeersinghrana811@gmail.com</a></p>
     <p>Location: Sheffield, UK</p>
   </section>
 
-  <!-- HIRE ME BUTTON -->
   <a href="mailto:sumeersinghrana811@gmail.com" style="
     position:fixed; bottom:25px; right:25px;
     background:#c9a84c; color:#0d1b2a; padding:12px 18px; font-size:0.8rem;
