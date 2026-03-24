@@ -22,85 +22,114 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
 
+    /* Navigation */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.4rem 5rem;
-      background: rgba(247,243,236,0.93);
-      backdrop-filter: blur(16px);
+      padding: 1.2rem 5%;
+      background: rgba(247,243,236,0.95);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: var(--navy); text-decoration: none; }
     .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-mid); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-mid); text-decoration: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
     .nav-links a:hover { color: var(--gold); }
-    .nav-cta { padding: 0.55rem 1.4rem; background: var(--navy); color: var(--white) !important; border-radius: 2px; text-decoration: none; }
 
-    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
-    .hero-left { background: var(--navy); padding: 10rem 5rem 5rem; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; }
-    .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem; }
-    .hero-name em { font-style: normal; color: var(--gold-light); }
-    .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.9; max-width: 380px; margin-bottom: 3rem; font-weight: 300; }
-    
-    .btn-gold { display: inline-block; padding: 0.85rem 2rem; background: var(--gold); color: var(--navy); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; border-radius: 2px; transition: 0.2s; }
-    .btn-ghost { display: inline-block; padding: 0.85rem 2rem; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.75); font-size: 0.82rem; text-decoration: none; border-radius: 2px; transition: 0.2s; }
-
-    .hero-right { background: var(--cream2); padding: 10rem 5rem 5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; }
-    .kpi-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .kpi { background: var(--white); border: 1px solid var(--border); padding: 1.4rem; border-radius: 3px; position: relative; }
-    .kpi::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
-    .kpi-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--navy); }
-    
-    section { padding: 7rem 5rem; }
-    .section-header { margin-bottom: 4rem; }
-    .section-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 0.8rem; }
-    .section-eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.4; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--navy); }
-
-    /* PROJECTS SECTION STYLES */
-    #projects { background: var(--cream); }
-    .projects-list { display: flex; flex-direction: column; gap: 2.5rem; }
-    .project-item {
-      display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start;
-      background: var(--white); border: 1px solid var(--border); border-radius: 4px;
-      padding: 3rem; transition: 0.3s;
+    /* Hero Section */
+    #hero { 
+      min-height: 100vh; 
+      display: grid; 
+      grid-template-columns: 1.2fr 0.8fr; 
+      align-items: center;
+      background: var(--navy);
+      color: white;
+      padding: 0 5%;
     }
-    .project-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    .project-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--cream2); }
-    .project-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
-    .project-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 0.5rem; }
-    .project-desc { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.5rem; }
-    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 0.3rem 0.8rem; background: var(--cream2); border-radius: 2px; }
+    .hero-content { padding-top: 80px; }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; color: var(--gold); font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 1.5rem; }
+    .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 2rem; }
+    .hero-name em { color: var(--gold-light); font-style: normal; }
+    .hero-desc { max-width: 500px; color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; font-size: 1.1rem; }
+    
+    .btn { display: inline-block; padding: 1rem 2.5rem; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+    .btn-gold { background: var(--gold); color: var(--navy); margin-right: 1rem; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.3); color: white; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
+    /* General Section Styling */
+    section { padding: 100px 5%; }
+    .section-header { margin-bottom: 4rem; }
+    .section-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 15px; }
+    .section-eyebrow::after { content: ''; width: 50px; height: 1px; background: var(--gold); opacity: 0.5; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 3rem); color: var(--navy); margin-top: 0.5rem; }
+
+    /* About Grid */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { margin-bottom: 1.5rem; font-size: 1.05rem; color: var(--text-mid); }
+    .info-card { background: white; padding: 2.5rem; border-radius: 4px; border: 1px solid var(--border); }
+    .info-item { margin-bottom: 1.5rem; }
+    .info-label { font-family: 'DM Mono'; font-size: 0.7rem; color: var(--text-light); text-transform: uppercase; }
+    .info-value { font-weight: 600; color: var(--navy); }
+
+    /* Projects (The Fixed Part) */
+    #projects { background: var(--cream2); }
+    .projects-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .project-card { 
+      display: grid; 
+      grid-template-columns: 100px 1fr; 
+      background: var(--white); 
+      padding: 3.5rem; 
+      border-radius: 4px; 
+      border: 1px solid var(--border);
+      transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(13,27,42,0.05); }
+    .project-num { font-family: 'Playfair Display'; font-size: 3.5rem; font-weight: 900; color: #eee; line-height: 1; }
+    .project-tag { font-family: 'DM Mono'; color: var(--gold); font-size: 0.7rem; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+    .project-card h3 { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 1rem; color: var(--navy); }
+    .project-card p { color: var(--text-mid); margin-bottom: 1.5rem; max-width: 700px; }
+    .tag-cloud { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag-cloud span { background: var(--cream); padding: 4px 12px; font-size: 0.75rem; border-radius: 2px; font-family: 'DM Mono'; }
+
+    /* Skills Grid */
     #skills { background: var(--navy); color: white; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .skill-card { background: var(--navy2); padding: 2rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
-    .skill-card-title { color: var(--gold); font-family: 'Playfair Display'; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
-    .skill-items { list-style: none; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    #skills .section-title { color: white; }
+    .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .skill-box { background: var(--navy2); padding: 2.5rem; border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; }
+    .skill-box h4 { font-family: 'Playfair Display'; font-size: 1.3rem; color: var(--gold); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+    .skill-list { list-style: none; }
+    .skill-list li { font-size: 0.9rem; margin-bottom: 0.8rem; opacity: 0.8; display: flex; align-items: center; gap: 10px; }
+    .skill-list li::before { content: '→'; color: var(--gold); font-size: 0.8rem; }
 
-    #experience { background: white; }
-    .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-    .exp-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    /* Experience */
+    .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5%; }
+    .exp-column h4 { font-family: 'DM Mono'; font-size: 0.8rem; color: var(--gold); margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .exp-item { margin-bottom: 3rem; }
+    .exp-date { font-size: 0.8rem; color: var(--text-light); font-family: 'DM Mono'; }
+    .exp-item h3 { font-family: 'Playfair Display'; font-size: 1.4rem; margin: 5px 0; }
+    .exp-org { color: var(--gold); font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
+    .exp-item p { font-size: 0.95rem; color: var(--text-mid); }
 
-    #contact { background: var(--navy); color: white; text-align: center; }
-    #contact a { color: var(--gold); }
-
-    @media (max-width: 900px) {
-      #hero, .exp-grid { grid-template-columns: 1fr; }
-      nav, section { padding: 2rem; }
-      .project-item { grid-template-columns: 1fr; padding: 2rem; }
+    /* Responsive */
+    @media (max-width: 992px) {
+      #hero, .about-grid, .exp-grid { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .project-card { grid-template-columns: 1fr; padding: 2rem; }
+      .project-num { margin-bottom: 1rem; }
+      nav { padding: 1rem 5%; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="nav-logo">Sumeer <span>Rana</span></div>
+    <a href="#" class="nav-logo">Sumeer <span>Rana</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -108,24 +137,28 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="mailto:sumeersinghrana811@gmail.com" class="nav-cta">Hire Me</a>
+    <a href="mailto:sumeersinghrana811@gmail.com" style="background: var(--navy); color: white; padding: 10px 20px; text-decoration: none; border-radius: 2px; font-size: 0.8rem;">HIRE ME</a>
   </nav>
 
   <section id="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow">Cloud & Security Engineer</div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">CLOUD & SECURITY ENGINEER</div>
       <h1 class="hero-name">Sumeer <em>Singh</em> Rana</h1>
-      <p class="hero-desc">Designing secure, scalable cloud infrastructure across AWS and Azure with a focus on automation and resilience.</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn-gold">View My Work</a>
-        <a href="mailto:sumeersinghrana811@gmail.com" class="btn-ghost" style="margin-left:10px;">Contact Me</a>
+      <p class="hero-desc">I design and secure scalable cloud infrastructure across AWS and Azure — focusing on automation, resilience, and cost-efficient system design.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-gold">View My Projects</a>
+        <a href="mailto:sumeersinghrana811@gmail.com" class="btn btn-outline">Let's Talk</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="kpi-row">
-        <div class="kpi"><div class="kpi-num">3+</div><div>Years Exp.</div></div>
-        <div class="kpi"><div class="kpi-num">10+</div><div>Projects</div></div>
-      </div>
+    <div class="hero-right" style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="background: rgba(255,255,255,0.05); padding: 30px; border-left: 4px solid var(--gold);">
+            <div style="font-size: 2.5rem; font-family: 'Playfair Display'; font-weight: 900;">3+</div>
+            <div style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">YEARS EXPERIENCE</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 30px; border-left: 4px solid var(--gold);">
+            <div style="font-size: 2.5rem; font-family: 'Playfair Display'; font-weight: 900;">50+</div>
+            <div style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">INCIDENTS RESOLVED</div>
+        </div>
     </div>
   </section>
 
@@ -134,48 +167,79 @@
       <div class="section-eyebrow">Introduction</div>
       <h2 class="section-title">About Me</h2>
     </div>
-    <p style="max-width: 800px; line-height: 2;">I am a Cloud & Security Engineer specializing in multi-cloud environments. I build production-ready systems that prioritize security without sacrificing performance. Based in Sheffield, UK.</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I’m a <strong>Cloud & Security Engineer</strong> with hands-on experience in AWS, Azure, and Oracle Cloud. I build automated, resilient, and cost-effective infrastructures while ensuring strong security posture.</p>
+        <p>I bring strong hands-on experience in multi-cloud engineering, designing systems across AWS and Azure with a focus on workload distribution and failover strategies. My approach is security-first, having built secure APIs using JWT authentication and role-based access control (RBAC).</p>
+      </div>
+      <div class="info-card">
+        <div class="info-item">
+          <div class="info-label">Current Location</div>
+          <div class="info-value">Sheffield, United Kingdom</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Email</div>
+          <div class="info-value">sumeersinghrana811@gmail.com</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Availability</div>
+          <div class="info-value">Immediate Start</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="projects">
     <div class="section-header">
       <div class="section-eyebrow">Portfolio</div>
-      <h2 class="section-title">Selected Projects</h2>
+      <h2 class="section-title">Key Projects</h2>
     </div>
-    
+
     <div class="projects-list">
-      <div class="project-item">
+      <div class="project-card">
         <div class="project-num">01</div>
         <div>
-          <div class="project-label">Multi-Cloud</div>
-          <h3 class="project-title">Multi-Cloud Control Plane</h3>
-          <p class="project-desc">A centralized monitoring system for AWS, Azure, and GCP infrastructure, tracking latency and security metrics in real-time.</p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">AWS</span><span class="tag">Azure</span>
+          <span class="project-tag">Cloud Infrastructure</span>
+          <h3>Multi-Cloud Control Plane</h3>
+          <p>Monitors and controls AWS, Azure, and GCP infrastructure with real-time metrics tracking. Tracks latency, cost, availability, and security metrics while auto-generating severity classifications.</p>
+          <div class="tag-cloud">
+            <span>Python</span><span>FastAPI</span><span>AWS</span><span>Azure</span><span>GCP</span>
           </div>
         </div>
       </div>
 
-      <div class="project-item">
+      <div class="project-card">
         <div class="project-num">02</div>
         <div>
-          <div class="project-label">Security</div>
-          <h3 class="project-title">Asset Security API</h3>
-          <p class="project-desc">Secure API implementation featuring JWT authentication, token blacklisting, and deep Role-Based Access Control (RBAC).</p>
-          <div class="tags">
-            <span class="tag">Django</span><span class="tag">JWT</span><span class="tag">Cybersecurity</span>
+          <span class="project-tag">Cybersecurity</span>
+          <h3>Asset Security API</h3>
+          <p>Secure API system implementing JWT authentication with token blacklisting and RBAC enforced at the database level. Designed for robust asset management and audit logging.</p>
+          <div class="tag-cloud">
+            <span>Django</span><span>JWT</span><span>PostgreSQL</span><span>Security</span>
           </div>
         </div>
       </div>
 
-      <div class="project-item">
+      <div class="project-card">
         <div class="project-num">03</div>
         <div>
-          <div class="project-label">Cybersecurity</div>
-          <h3 class="project-title">IDS Evasion Scanner</h3>
-          <p class="project-desc">Automated penetration testing tool designed to simulate firewall evasion and network reconnaissance using Nmap and Scapy.</p>
-          <div class="tags">
-            <span class="tag">Kali Linux</span><span class="tag">Python</span><span class="tag">Networking</span>
+          <span class="project-tag">Network Defense</span>
+          <h3>IDS / Firewall Evasion Scanner</h3>
+          <p>Automated IDS evasion and network scanning tool for penetration testing. Combines multiple Nmap scan types to classify ports and generate vulnerability reports.</p>
+          <div class="tag-cloud">
+            <span>Python</span><span>Nmap</span><span>Kali Linux</span><span>Scapy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">04</div>
+        <div>
+          <span class="project-tag">Real-Time Systems</span>
+          <h3>CPS Security Simulation</h3>
+          <p>Simulates industrial systems under cyber attack with real-time mitigation. Uses PID control for fault injection and a 5-state mitigation system for resilience.</p>
+          <div class="tag-cloud">
+            <span>Python</span><span>PID Control</span><span>State Machines</span>
           </div>
         </div>
       </div>
@@ -185,20 +249,35 @@
   <section id="skills">
     <div class="section-header">
       <div class="section-eyebrow">Expertise</div>
-      <h2 class="section-title" style="color:white;">Technical Stack</h2>
+      <h2 class="section-title">Technical Stack</h2>
     </div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h4 class="skill-card-title">Cloud</h4>
-        <ul class="skill-items"><li>AWS & Azure</li><li>Terraform (IaC)</li><li>Docker & K8s</li></ul>
+    <div class="skills-container">
+      <div class="skill-box">
+        <h4>Cloud & DevOps</h4>
+        <ul class="skill-list">
+          <li>AWS (EC2, S3, IAM, CloudWatch)</li>
+          <li>Azure & GCP Integration</li>
+          <li>Terraform & Infrastructure as Code</li>
+          <li>Docker & Kubernetes</li>
+        </ul>
       </div>
-      <div class="skill-card">
-        <h4 class="skill-card-title">Security</h4>
-        <ul class="skill-items"><li>Pen-Testing</li><li>IAM & RBAC</li><li>IDS/IPS Evasion</li></ul>
+      <div class="skill-box">
+        <h4>Security</h4>
+        <ul class="skill-list">
+          <li>JWT Auth & RBAC Systems</li>
+          <li>Network Scanning & Pen-Testing</li>
+          <li>IDS / Firewall Evasion</li>
+          <li>Vulnerability Assessment</li>
+        </ul>
       </div>
-      <div class="skill-card">
-        <h4 class="skill-card-title">Dev</h4>
-        <ul class="skill-items"><li>Python (FastAPI)</li><li>Django</li><li>Node.js</li></ul>
+      <div class="skill-box">
+        <h4>Development</h4>
+        <ul class="skill-list">
+          <li>Python (Automation & Tools)</li>
+          <li>Django & FastAPI</li>
+          <li>Node.js & Express</li>
+          <li>REST API Architecture</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -206,27 +285,50 @@
   <section id="experience">
     <div class="section-header">
       <div class="section-eyebrow">Journey</div>
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title">Work Experience</h2>
     </div>
     <div class="exp-grid">
-      <div class="exp-item">
-        <h4 style="color:var(--gold);">2024 - Present</h4>
-        <h3>Cybersecurity Intern</h3>
-        <p>Future Interns, Sheffield. Focus on threat analysis and risk assessment.</p>
+      <div class="exp-column">
+        <h4>PROFESSIONAL ROLES</h4>
+        <div class="exp-item">
+          <div class="exp-date">2024 – PRESENT</div>
+          <h3>Cybersecurity Intern</h3>
+          <div class="exp-org">Future Interns, Sheffield, UK</div>
+          <p>Analyzing real-world threats and performing risk assessments while strengthening knowledge of cloud security and secure system practices.</p>
+        </div>
+        <div class="exp-item">
+          <div class="exp-date">2024 – PRESENT</div>
+          <h3>Independent Software Engineer</h3>
+          <div class="exp-org">Self-Employed</div>
+          <p>Delivered production-ready projects including multi-cloud orchestration systems, secure REST APIs, and fault management simulations.</p>
+        </div>
       </div>
-      <div class="exp-item">
-        <h4 style="color:var(--gold);">2020 - 2023</h4>
-        <h3>Customer Support Engineer</h3>
-        <p>Tech Mahindra. Troubleshooting complex technical connectivity and cloud access issues.</p>
+      <div class="exp-column">
+        <h4>PREVIOUS ROLES</h4>
+        <div class="exp-item">
+          <div class="exp-date">2020 – 2023</div>
+          <h3>Customer Support Engineer</h3>
+          <div class="exp-org">Tech Mahindra, India</div>
+          <p>Resolved 50+ technical issues daily. Troubleshot cloud access, software failures, and connectivity problems for global users.</p>
+        </div>
+        <div class="exp-item">
+            <div class="exp-date">2023 – PRESENT</div>
+            <h3>Floor Staff Lead</h3>
+            <div class="exp-org">Cambridge Street Collective, UK</div>
+            <p>Managing real-time operational decisions and staff scheduling in a fast-paced environment with 300+ daily customers.</p>
+          </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2 class="section-title" style="color:white; margin-bottom: 2rem;">Let's Work Together</h2>
-    <p>Currently open to Cloud, DevOps, and Security roles in the UK.</p>
-    <p style="margin-top: 2rem;"><a href="mailto:sumeersinghrana811@gmail.com">sumeersinghrana811@gmail.com</a></p>
+  <section id="contact" style="background: var(--navy); color: white; text-align: center; padding: 120px 5%;">
+    <div class="section-eyebrow" style="justify-content: center;">Get In Touch</div>
+    <h2 class="section-title" style="color: white; margin-bottom: 2rem;">Let's Build Something Secure</h2>
+    <p style="max-width: 600px; margin: 0 auto 3rem; opacity: 0.7;">Actively seeking Cloud, DevOps, or Security Engineer roles across the UK. Open to immediate start.</p>
+    <a href="mailto:sumeersinghrana811@gmail.com" style="font-family: 'Playfair Display'; font-size: clamp(1.5rem, 4vw, 3rem); color: var(--gold); text-decoration: none; font-weight: 700;">sumeersinghrana811@gmail.com</a>
   </section>
+
+  <a href="mailto:sumeersinghrana811@gmail.com" style="position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: var(--navy); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 1000; font-weight: bold;">✉</a>
 
 </body>
 </html>
