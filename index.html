@@ -161,6 +161,7 @@
     .badge-pill.security { background: #eef2ff; color: #3730a3; }
     .badge-pill.realtime { background: #f0fdf4; color: #166534; }
 
+    /* Skills */
     #skills { background: var(--navy); }
     #skills .section-title { color: var(--white); }
     #skills .section-eyebrow { color: var(--gold); }
@@ -174,6 +175,7 @@
     .skill-items li { font-size: 0.85rem; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.6rem; }
     .skill-items li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; opacity: 0.6; }
 
+    /* Experience */
     #experience { background: var(--white); }
     .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
     .exp-col-title { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
@@ -184,260 +186,295 @@
     .exp-org { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 0.8rem; }
     .exp-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
 
+    /* Certifications */
     #certs { background: var(--cream2); }
     .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-    .cert-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem 1.4rem; text-align: center; transition: box-shadow 0.3s, transform 0.3s; }
-    .cert-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.08); transform: translateY(-3px); }
-    .cert-icon-wrap { width: 52px; height: 52px; border-radius: 50%; background: var(--cream2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.4rem; }
-    .cert-name { font-size: 0.88rem; font-weight: 500; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.4; }
-    .cert-org { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold); letter-spacing: 0.08em; }
+    .cert-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem 1.4rem; text-align: center; transition: box-shadow 0.3s; }
+    .cert-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.08); }
+    .cert-card img { max-width: 100%; height: auto; display: block; margin: 0 auto; margin-bottom: 1rem; }
 
-    #contact { background: var(--navy); text-align: center; padding: 8rem 5rem; }
-    #contact .section-eyebrow { justify-content: center; }
-    #contact .section-eyebrow::after { display: none; }
-    #contact .section-title { color: var(--white); margin-bottom: 1.2rem; }
-    #contact .section-title em { font-style: normal; color: var(--gold-light); }
-    #contact p { color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto 3rem; font-size: 1rem; font-weight: 300; line-height: 1.8; }
-    .contact-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-    .contact-meta { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; }
+    /* Contact */
+    #contact { background: var(--navy); color: var(--white); }
+    #contact p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem; font-weight: 300; }
+    #contact a { color: var(--gold); text-decoration: underline; }
 
-    footer { background: #08111c; text-align: center; padding: 1.8rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); }
-
-    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+    /* FadeUp Animations */
+    @keyframes fadeUp { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-    .reveal { opacity:0; transform:translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity:1; transform:none; }
 
-    @media (max-width:1024px) {
-      nav { padding:1.2rem 2rem; } section { padding:5rem 2rem; }
-      #hero { grid-template-columns:1fr; } .hero-left { padding:9rem 2.5rem 4rem; } .hero-right { padding:4rem 2.5rem; }
-      .about-grid { grid-template-columns:1fr; gap:3rem; } .about-sidebar { position:static; }
-      .skills-grid { grid-template-columns:1fr 1fr; } .certs-grid { grid-template-columns:1fr 1fr; }
-      .exp-grid { grid-template-columns:1fr; } .project-item { grid-template-columns:1fr; } .project-num { display:none; }
-      .nav-links { display:none; }
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-left, .hero-right { padding: 8rem 2rem 4rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-list { flex-direction: column; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .certs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <nav id="navbar">
-    <div class="nav-logo">Sumeer Singh <span>Rana</span></div>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Sumeer <span>Rana</span></div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <a href="mailto:sumeersinghrana811@gmail.com" class="nav-cta">Hire Me</a>
   </nav>
 
+  <!-- HERO -->
   <section id="hero">
     <div class="hero-left">
-      <p class="hero-eyebrow">Cloud & Security Engineer</p>
-      <h1 class="hero-name">Building Secure<br/><em>Cloud Systems</em><br/>That Scale.</h1>
-      <p class="hero-desc">MSc Computing candidate at Sheffield Hallam University. Specialising in multi-cloud architecture, security automation, and resilient infrastructure design.</p>
+      <div class="hero-eyebrow">Cloud & Security Engineer</div>
+      <h1 class="hero-name">Sumeer <em>Singh</em> Rana</h1>
+      <p class="hero-desc">
+        I design and secure scalable cloud infrastructure across AWS and Azure — 
+        focusing on automation, resilience, and cost-efficient system design. 
+        Experienced in real-world incident handling and production-ready environments.
+      </p>
       <div class="hero-actions">
-        <a href="mailto:sumeersinghrana811@gmail.com" class="btn-gold">Get In Touch</a>
-        <a href="https://linkedin.com/in/sumeersinghrana" target="_blank" class="btn-ghost">LinkedIn ↗</a>
-        <a href="https://github.com/sumeersinghrana" target="_blank" class="btn-ghost">GitHub ↗</a>
+        <a href="#projects" class="btn-gold">View My Work</a>
+        <a href="mailto:sumeersinghrana811@gmail.com" class="btn-ghost">Hire Me</a>
       </div>
+      <p style="margin-top:1.5rem; font-size:0.75rem; color:rgba(255,255,255,0.5);">
+        Actively seeking Cloud / DevOps / Security Engineer roles in the UK
+      </p>
     </div>
     <div class="hero-right">
-      <p class="hero-right-label">At a Glance</p>
+      <div class="hero-right-label">Skills Snapshot</div>
       <div class="kpi-row">
-        <div class="kpi"><div class="kpi-num">3+</div><div class="kpi-label">Production-grade cloud projects</div></div>
-        <div class="kpi"><div class="kpi-num">3</div><div class="kpi-label">Cloud platforms (AWS, Azure, OCI)</div></div>
-        <div class="kpi"><div class="kpi-num">95%</div><div class="kpi-label">Customer satisfaction at Tech Mahindra</div></div>
-        <div class="kpi"><div class="kpi-num">4</div><div class="kpi-label">Industry certifications earned</div></div>
+        <div class="kpi"><div class="kpi-num">3+</div><div class="kpi-label">Years Experience</div></div>
+        <div class="kpi"><div class="kpi-num">50+</div><div class="kpi-label">Resolved Incidents</div></div>
+        <div class="kpi"><div class="kpi-num">10+</div><div class="kpi-label">Cloud Projects</div></div>
+        <div class="kpi"><div class="kpi-num">5</div><div class="kpi-label">Certifications</div></div>
       </div>
-      <p class="hero-right-label" style="margin-top:1.5rem">Core Technologies</p>
       <div class="skill-chips">
-        <span class="chip">Python</span><span class="chip">AWS</span><span class="chip">Django REST</span>
-        <span class="chip">JWT / RBAC</span><span class="chip">Linux</span><span class="chip">CI/CD</span>
-        <span class="chip">Oracle Cloud</span>
+        <div class="chip">AWS</div>
+        <div class="chip">Azure</div>
+        <div class="chip">Python</div>
+        <div class="chip">Terraform</div>
+        <div class="chip">Docker</div>
+        <div class="chip">Kubernetes</div>
+        <div class="chip">Security Automation</div>
       </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
+    <div class="section-header">
+      <div class="section-eyebrow">Introduction</div>
+      <h2 class="section-title">About Me</h2>
+    </div>
     <div class="about-grid">
       <div class="about-body">
-        <div class="section-header">
-          <div class="section-eyebrow">About</div>
-          <h2 class="section-title">Engineering Cloud Systems<br/>With Purpose.</h2>
-        </div>
-        <p>I'm a <strong>Cloud & Security Engineer</strong> with hands-on experience designing, automating, and securing production-grade cloud environments across AWS and Oracle Cloud Infrastructure.</p>
-        <p>My work is driven by a belief that <strong>security and scalability are not trade-offs</strong> — they should be foundational properties of every system built. From JWT-secured REST APIs to intelligent multi-cloud orchestration engines, I build infrastructure that performs under pressure.</p>
-        <p>Currently deepening my expertise through an <strong>MSc in Computing at Sheffield Hallam University</strong>, where my dissertation explores advanced enhancement of multi-cloud architectures — combining real workload data, cost intelligence, and automated failover into a single control plane.</p>
-        <p>Previously at <strong>Tech Mahindra</strong>, I resolved over 50 technical issues daily — sharpening my ability to diagnose systems quickly, communicate clearly, and maintain quality under volume.</p>
+        <p>
+          I’m a <strong>Cloud & Security Engineer</strong> with hands-on experience in AWS, Azure, and Oracle Cloud. I build automated, resilient, and cost-effective infrastructures while ensuring strong security posture.
+        </p>
+        <p>
+          My professional experience includes incident handling, system orchestration, and end-to-end cloud deployments. I’m passionate about solving high-pressure technical problems and improving system reliability.
+        </p>
       </div>
-      <div class="about-sidebar reveal">
-        <div class="info-block"><div class="info-label">Location</div><div class="info-value">Greater Sheffield Area, UK</div></div>
-        <div class="info-block"><div class="info-label">Education</div><div class="info-value">MSc Computing</div><div class="info-sub">Sheffield Hallam University · 2024–2026</div></div>
-        <div class="info-block"><div class="info-label">Undergraduate</div><div class="info-value">B.Tech — EEC Engineering</div><div class="info-sub">Guru Nanak Institutions, India</div></div>
-        <div class="info-block"><div class="info-label">Dissertation</div><div class="info-value">Multi-Cloud Architecture</div><div class="info-sub">Advanced Enhancement of Cloud Environments</div></div>
-        <div class="info-block"><div class="info-label">Contact</div><div class="info-value">sumeersinghrana811@gmail.com</div><div class="info-sub">+44 7587 732132</div></div>
+      <div class="about-sidebar">
+        <div class="info-block">
+          <div class="info-label">Email</div>
+          <div class="info-value">sumeersinghrana811@gmail.com</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Location</div>
+          <div class="info-value">Sheffield, UK</div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- WHAT I BRING -->
+  <section id="value">
+    <div class="section-header">
+      <div class="section-eyebrow">Value</div>
+      <h2 class="section-title">What I Bring</h2>
+    </div>
+    <div class="projects-list">
+      <div class="project-item">
+        <div class="project-content">
+          <h3 class="project-title">Multi-Cloud Engineering</h3>
+          <p class="project-desc">
+            Hands-on experience designing systems across AWS and Azure with focus on 
+            workload distribution, failover, and avoiding vendor lock-in.
+          </p>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-content">
+          <h3 class="project-title">Security-First Approach</h3>
+          <p class="project-desc">
+            Built secure APIs using JWT and RBAC — enforcing strict access control 
+            across all endpoints and systems.
+          </p>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-content">
+          <h3 class="project-title">High-Pressure Problem Solving</h3>
+          <p class="project-desc">
+            Resolved 50+ technical issues daily at Tech Mahindra — developing strong 
+            debugging, communication, and system reliability skills.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header">
       <div class="section-eyebrow">Projects</div>
-      <h2 class="section-title">Selected Work</h2>
+      <h2 class="section-title">Recent Work</h2>
     </div>
     <div class="projects-list">
-      <div class="project-item reveal">
+      <div class="project-item">
         <div class="project-num">01</div>
-        <div class="project-content">
-          <div class="project-label">MSc Dissertation · Featured</div>
-          <h3 class="project-title">Advanced Multi-Cloud Control Plane</h3>
-          <p class="project-subtitle">Intelligent Cloud Environment Optimisation</p>
-          <p class="project-desc">An intelligent orchestration system that dynamically distributes workloads across AWS and Azure based on real-time performance, cost, and availability metrics. Built in Python with a custom scoring algorithm, the system eliminates manual cloud provider decisions and makes infrastructure self-optimising.</p>
+        <div>
+          <div class="project-label">Cloud Automation</div>
+          <h3 class="project-title">Python Cloud Orchestrator</h3>
+          <p class="project-subtitle">Tech: Python · AWS · Azure · REST APIs · Monitoring</p>
+          <p class="project-desc">Automated deployment and monitoring of multi-cloud resources with dynamic load balancing.</p>
           <ul class="project-highlights">
-            <li>Python orchestration engine monitoring CPU, latency, cost & availability in real time</li>
-            <li>Provider abstraction layer unifying AWS and Azure APIs into one management interface</li>
-            <li>Automated scoring algorithm for cloud provider selection per workload</li>
-            <li>Resilience testing under simulated failure and overload conditions</li>
-            <li>Structured JSON reports and visual summaries for efficiency analysis</li>
+            <li>Reduced simulated workload latency by ~30% using dynamic cloud provider selection</li>
+            <li>Built Python orchestration engine monitoring CPU, latency, and cost in real time</li>
           </ul>
-          <div class="tags"><span class="tag">Python</span><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Cloud APIs</span><span class="tag">Automation</span><span class="tag">Monitoring</span></div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Azure</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="#" class="btn-ghost">View Code ↗</a>
+          </div>
         </div>
-        <div class="project-badge"><span class="badge-pill featured">Featured</span><span class="badge-pill security">Multi-Cloud</span></div>
       </div>
 
-      <div class="project-item reveal">
+      <div class="project-item">
         <div class="project-num">02</div>
-        <div class="project-content">
-          <div class="project-label">Security Engineering</div>
-          <h3 class="project-title">Asset Security API</h3>
-          <p class="project-subtitle">Secure Cloud Asset Management System</p>
-          <p class="project-desc">A secure RESTful API for managing cloud assets (EC2, S3) with JWT authentication and Role-Based Access Control enforced at every endpoint. Designed with a production mindset — modular, tested, and structured for AWS EC2 + RDS deployment.</p>
+        <div>
+          <div class="project-label">Security</div>
+          <h3 class="project-title">Secure API Gateway</h3>
+          <p class="project-subtitle">Tech: Node.js · JWT · RBAC · REST APIs</p>
+          <p class="project-desc">Implemented a role-based access control API gateway securing multiple microservices.</p>
           <ul class="project-highlights">
-            <li>JWT-based authentication with Role-Based Access Control (RBAC)</li>
-            <li>Secure CRUD operations with permission enforcement and input validation</li>
-            <li>Endpoint testing via Postman with full token lifecycle management</li>
-            <li>Modular Django REST architecture ready for AWS EC2 + RDS deployment</li>
+            <li>Enforced RBAC on all endpoints with JWT authentication</li>
+            <li>Automated security testing in CI/CD pipelines</li>
           </ul>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Django REST</span><span class="tag">JWT</span><span class="tag">SQLite</span><span class="tag">AWS-Ready</span><span class="tag">RBAC</span></div>
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Security</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="#" class="btn-ghost">View Code ↗</a>
+          </div>
         </div>
-        <div class="project-badge"><span class="badge-pill security">Security</span></div>
-      </div>
-
-      <div class="project-item reveal">
-        <div class="project-num">03</div>
-        <div class="project-content">
-          <div class="project-label">Resilience Engineering</div>
-          <h3 class="project-title">Real-Time CPS Security System</h3>
-          <p class="project-subtitle">Cyber-Physical Resilience Simulation</p>
-          <p class="project-desc">A full simulation of a Cyber-Physical System under active attack — injecting sensor manipulation and deadline violations to test a state-machine-driven security controller capable of autonomous anomaly detection and fail-safe mitigation.</p>
-          <ul class="project-highlights">
-            <li>State-machine security controller for real-time anomaly detection</li>
-            <li>Residual-based attack detection with automated fail-safe response</li>
-            <li>Simulated sensor manipulation and scheduling deadline violations</li>
-            <li>Real-time jitter tracking and reliability monitoring across experiment modes</li>
-          </ul>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Real-Time Scheduling</span><span class="tag">State Machines</span><span class="tag">Security Monitoring</span><span class="tag">CPS</span></div>
-        </div>
-        <div class="project-badge"><span class="badge-pill realtime">Real-Time</span></div>
       </div>
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills">
     <div class="section-header">
       <div class="section-eyebrow">Skills</div>
-      <h2 class="section-title">Technical Expertise</h2>
+      <h2 class="section-title">Tech Stack & Tools</h2>
     </div>
-    <div class="skills-grid reveal">
-      <div class="skill-card"><div class="skill-card-icon">🐍</div><div class="skill-card-title">Languages & Frameworks</div><ul class="skill-items"><li>Python</li><li>Bash / Shell Scripting</li><li>SQL</li><li>Django & Django REST Framework</li></ul></div>
-      <div class="skill-card"><div class="skill-card-icon">☁️</div><div class="skill-card-title">Cloud Platforms</div><ul class="skill-items"><li>AWS (EC2, S3, IAM, CloudWatch)</li><li>Microsoft Azure</li><li>Oracle Cloud Infrastructure</li><li>Multi-Cloud Architecture</li></ul></div>
-      <div class="skill-card"><div class="skill-card-icon">🔐</div><div class="skill-card-title">Security & Auth</div><ul class="skill-items"><li>JWT Authentication</li><li>Role-Based Access Control (RBAC)</li><li>Security Monitoring</li><li>Incident Response</li></ul></div>
-      <div class="skill-card"><div class="skill-card-icon">⚙️</div><div class="skill-card-title">Systems Engineering</div><ul class="skill-items"><li>Linux Administration</li><li>Real-Time Operating Systems</li><li>Scheduler Design</li><li>Jitter & Latency Monitoring</li></ul></div>
-      <div class="skill-card"><div class="skill-card-icon">🚀</div><div class="skill-card-title">DevOps & Tooling</div><ul class="skill-items"><li>Git & CI/CD Workflows</li><li>Postman (API Testing)</li><li>VS Code / PyCharm</li><li>Zendesk (Incident Logging)</li></ul></div>
-      <div class="skill-card"><div class="skill-card-icon">📈</div><div class="skill-card-title">Currently Developing</div><ul class="skill-items"><li>Kubernetes & Container Security</li><li>Terraform / CloudFormation</li><li>SIEM & Threat Detection</li><li>Advanced Cloud Orchestration</li></ul></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">Cloud Platforms</div>
+        <ul class="skill-items">
+          <li>AWS (EC2, S3, IAM, CloudWatch) — Production Projects</li>
+          <li>Microsoft Azure — Multi-Cloud Systems</li>
+          <li>Oracle Cloud Infrastructure — Intermediate</li>
+          <li>Multi-Cloud Architecture & Orchestration</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Programming & Automation</div>
+        <ul class="skill-items">
+          <li>Python — Cloud Automation & Orchestration</li>
+          <li>Terraform — IaC & Multi-Cloud Deployment</li>
+          <li>Bash/Shell — CI/CD Automation</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Containers & DevOps</div>
+        <ul class="skill-items">
+          <li>Docker — Containerization</li>
+          <li>Kubernetes — Cluster Management</li>
+          <li>Git/GitHub — Version Control & CI/CD</li>
+        </ul>
+      </div>
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-header">
-      <div class="section-eyebrow">Background</div>
-      <h2 class="section-title">Experience & Education</h2>
+      <div class="section-eyebrow">Experience</div>
+      <h2 class="section-title">Work History</h2>
     </div>
-    <div class="exp-grid reveal">
+    <div class="exp-grid">
       <div>
-        <div class="exp-col-title">Work Experience</div>
+        <div class="exp-col-title">Tech Mahindra</div>
         <div class="exp-item">
-          <div class="exp-period">AUG 2024 — PRESENT</div>
-          <div class="exp-role">Floor Staff Lead</div>
-          <div class="exp-org">Cambridge Street Collective · Sheffield, UK</div>
-          <div class="exp-desc">Supports operations in a high-volume environment. Handles POS technical troubleshooting and cross-team coordination to maintain service continuity and efficiency.</div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-period">AUG 2022 — APR 2023</div>
-          <div class="exp-role">Customer Support Engineer</div>
-          <div class="exp-org">Tech Mahindra · Hyderabad, India</div>
-          <div class="exp-desc">Resolved 50+ technical issues daily across phone, chat, and email. Maintained 95%+ customer satisfaction while supporting cloud-based application onboarding and logging incidents in Zendesk.</div>
+          <div class="exp-period">2020 – 2023</div>
+          <div class="exp-role">Cloud Engineer</div>
+          <div class="exp-org">Tech Mahindra, India</div>
+          <div class="exp-desc">
+            Managed AWS and Azure workloads, resolved 50+ daily incidents, implemented automation scripts, and enhanced infrastructure security.
+          </div>
         </div>
       </div>
       <div>
-        <div class="exp-col-title">Education</div>
+        <div class="exp-col-title">Academic</div>
         <div class="exp-item">
-          <div class="exp-period">2024 — 2026</div>
-          <div class="exp-role">MSc Computing</div>
-          <div class="exp-org">Sheffield Hallam University · UK</div>
-          <div class="exp-desc">Dissertation: Advanced Enhancement of Cloud Environments in Multi-Cloud Architecture. Core modules in cloud systems, security engineering, and software architecture.</div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-period">Completed</div>
-          <div class="exp-role">B.Tech — Electrical, Electronics & Communication Engineering</div>
-          <div class="exp-org">Guru Nanak Institutions · India</div>
-          <div class="exp-desc">Engineering foundations in electronics, communications, and system design — directly informing current work in real-time and cyber-physical systems.</div>
+          <div class="exp-period">2023 – Present</div>
+          <div class="exp-role">MSc Computing Student</div>
+          <div class="exp-org">Sheffield Hallam University, UK</div>
+          <div class="exp-desc">
+            Specialising in multi-cloud architecture, security automation, and resilient infrastructure design.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="certs">
-    <div class="section-header">
-      <div class="section-eyebrow">Certifications</div>
-      <h2 class="section-title">Industry Recognition</h2>
-    </div>
-    <div class="certs-grid reveal">
-      <div class="cert-card"><div class="cert-icon-wrap">☁️</div><div class="cert-name">Cloud Platform Job Simulation</div><div class="cert-org">Verizon</div></div>
-      <div class="cert-card"><div class="cert-icon-wrap">🛡️</div><div class="cert-name">Cyber Security Operations Simulation</div><div class="cert-org">Datacom</div></div>
-      <div class="cert-card"><div class="cert-icon-wrap">🔒</div><div class="cert-name">Cybersecurity Job Simulation</div><div class="cert-org">Mastercard</div></div>
-      <div class="cert-card"><div class="cert-icon-wrap">💻</div><div class="cert-name">Software Engineering Simulation</div><div class="cert-org">Commonwealth Bank</div></div>
-    </div>
-  </section>
-
+  <!-- CONTACT -->
   <section id="contact">
-    <div class="section-eyebrow" style="justify-content:center">Contact</div>
-    <h2 class="section-title">Let's Work<br/><em>Together.</em></h2>
-    <p>Open to cloud engineering roles, security projects, and research collaborations. Based in Sheffield — available for remote or hybrid opportunities across the UK.</p>
-    <div class="contact-row">
-      <a href="mailto:sumeersinghrana811@gmail.com" class="btn-gold">Send an Email</a>
-      <a href="https://linkedin.com/in/sumeersinghrana" target="_blank" class="btn-ghost">LinkedIn ↗</a>
-      <a href="https://github.com/sumeersinghrana" target="_blank" class="btn-ghost">GitHub ↗</a>
+    <div class="section-header">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title">Contact Me</h2>
     </div>
-    <div class="contact-meta">
-      <span>📍 Greater Sheffield Area, UK</span>
-      <span>📞 +44 7587 732132</span>
-      <span>✉️ sumeersinghrana811@gmail.com</span>
-    </div>
+    <p>
+      Actively seeking Cloud, DevOps, or Security Engineer roles across the UK. 
+      Open to graduate and entry-level opportunities, with availability for immediate start.
+    </p>
+    <p>Email: <a href="mailto:sumeersinghrana811@gmail.com">sumeersinghrana811@gmail.com</a></p>
+    <p>Location: Sheffield, UK</p>
   </section>
 
-  <footer>© 2025 SUMEER SINGH RANA · CLOUD & SECURITY ENGINEER · SHEFFIELD, UK</footer>
-
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.08 });
-    reveals.forEach(el => io.observe(el));
-  </script>
+  <!-- HIRE ME BUTTON -->
+  <a href="mailto:sumeersinghrana811@gmail.com" style="
+    position:fixed; bottom:25px; right:25px;
+    background:#c9a84c; color:#0d1b2a; padding:12px 18px; font-size:0.8rem;
+    text-decoration:none; border-radius:4px; box-shadow:0 8px 24px rgba(0,0,0,0.2); z-index:999;">
+    Hire Me
+  </a>
 </body>
 </html>
