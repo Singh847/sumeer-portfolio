@@ -300,160 +300,242 @@
   </section>
 
   <!-- WHAT I BRING -->
-  <section id="value">
-    <div class="section-header">
-      <div class="section-eyebrow">Value</div>
-      <h2 class="section-title">What I Bring</h2>
-    </div>
-    <div class="projects-list">
-      <div class="project-item">
-        <div class="project-content">
-          <h3 class="project-title">Multi-Cloud Engineering</h3>
-          <p class="project-desc">
-            Hands-on experience designing systems across AWS and Azure with focus on 
-            workload distribution, failover, and avoiding vendor lock-in.
-          </p>
-        </div>
-      </div>
-      <div class="project-item">
-        <div class="project-content">
-          <h3 class="project-title">Security-First Approach</h3>
-          <p class="project-desc">
-            Built secure APIs using JWT and RBAC — enforcing strict access control 
-            across all endpoints and systems.
-          </p>
-        </div>
-      </div>
-      <div class="project-item">
-        <div class="project-content">
-          <h3 class="project-title">High-Pressure Problem Solving</h3>
-          <p class="project-desc">
-            Resolved 50+ technical issues daily at Tech Mahindra — developing strong 
-            debugging, communication, and system reliability skills.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+ <section id="value">
+  <div class="section-header">
+    <div class="section-eyebrow">Value</div>
+    <h2 class="section-title">What I Bring</h2>
+  </div>
+
+  <div style="max-width: 900px;">
+    <p class="project-desc" style="font-size:0.95rem;">
+      I bring strong hands-on experience in <strong>multi-cloud engineering</strong>, designing systems across AWS and Azure with a focus on workload distribution, failover strategies, and avoiding vendor lock-in. My approach is <strong>security-first</strong>, having built secure APIs using JWT authentication, token blacklisting, and role-based access control (RBAC) to enforce strict system access. I thrive in <strong>high-pressure environments</strong>, resolving 50+ technical issues daily, which has strengthened my debugging, communication, and system reliability skills. I focus on building scalable, secure, and production-ready cloud systems that perform efficiently in real-world conditions.
+    </p>
+  </div>
+</section>
 
   <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-header">
-      <div class="section-eyebrow">Projects</div>
-      <h2 class="section-title">Recent Work</h2>
+ <div class="project-item">
+  <div class="project-num">01</div>
+  <div>
+    <div class="project-label">Multi-Cloud</div>
+    <h3 class="project-title">Multi-Cloud Control Plane</h3>
+    <p class="project-subtitle">Python · FastAPI · AWS · Azure · GCP</p>
+    <p class="project-desc">
+      Monitors and controls AWS, Azure, and GCP infrastructure with real-time metrics tracking.
+    </p>
+    <ul class="project-highlights">
+      <li>Tracks latency, cost, availability, and security metrics</li>
+      <li>Auto-generates severity classifications and reports</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Multi-Cloud</span>
     </div>
-    <div class="projects-list">
-      <div class="project-item">
-        <div class="project-num">01</div>
-        <div>
-          <div class="project-label">Cloud Automation</div>
-          <h3 class="project-title">Python Cloud Orchestrator</h3>
-          <p class="project-subtitle">Tech: Python · AWS · Azure · REST APIs · Monitoring</p>
-          <p class="project-desc">Automated deployment and monitoring of multi-cloud resources with dynamic load balancing.</p>
-          <ul class="project-highlights">
-            <li>Reduced simulated workload latency by ~30% using dynamic cloud provider selection</li>
-            <li>Built Python orchestration engine monitoring CPU, latency, and cost in real time</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">AWS</span>
-            <span class="tag">Azure</span>
-          </div>
-          <div style="margin-top:1.2rem;">
-            <a href="#" class="btn-ghost">View Code ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-item">
-        <div class="project-num">02</div>
-        <div>
-          <div class="project-label">Security</div>
-          <h3 class="project-title">Secure API Gateway</h3>
-          <p class="project-subtitle">Tech: Node.js · JWT · RBAC · REST APIs</p>
-          <p class="project-desc">Implemented a role-based access control API gateway securing multiple microservices.</p>
-          <ul class="project-highlights">
-            <li>Enforced RBAC on all endpoints with JWT authentication</li>
-            <li>Automated security testing in CI/CD pipelines</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">Security</span>
-          </div>
-          <div style="margin-top:1.2rem;">
-            <a href="#" class="btn-ghost">View Code ↗</a>
-          </div>
-        </div>
-      </div>
+  </div>
+</div>
+  <div class="project-item">
+  <div class="project-num">02</div>
+  <div>
+    <div class="project-label">Security</div>
+    <h3 class="project-title">Asset Security API</h3>
+    <p class="project-subtitle">Python · Django · JWT · RBAC</p>
+    <p class="project-desc">
+      Secure API system implementing authentication, authorization, and audit logging.
+    </p>
+    <ul class="project-highlights">
+      <li>JWT authentication with token blacklisting</li>
+      <li>RBAC enforced at database level</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Security</span>
+      <span class="tag">API</span>
     </div>
-  </section>
-
+  </div>
+</div>
+  <div class="project-item">
+  <div class="project-num">03</div>
+  <div>
+    <div class="project-label">Cybersecurity</div>
+    <h3 class="project-title">IDS / Firewall Evasion Scanner</h3>
+    <p class="project-subtitle">Python · Nmap · Kali Linux · Scapy</p>
+    <p class="project-desc">
+      Automated IDS evasion and network scanning tool for penetration testing.
+    </p>
+    <ul class="project-highlights">
+      <li>Combines multiple Nmap scan types</li>
+      <li>Classifies ports and generates reports</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Cybersecurity</span>
+      <span class="tag">Networking</span>
+    </div>
+  </div>
+</div>
+  <div class="project-item">
+  <div class="project-num">04</div>
+  <div>
+    <div class="project-label">Real-Time</div>
+    <h3 class="project-title">Real-Time CPS Security System</h3>
+    <p class="project-subtitle">Python · PID Control · State Machine</p>
+    <p class="project-desc">
+      Simulates industrial systems under cyber attack with real-time mitigation.
+    </p>
+    <ul class="project-highlights">
+      <li>Fault injection using PID control</li>
+      <li>5-state real-time mitigation system</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Real-Time</span>
+      <span class="tag">Security</span>
+    </div>
+  </div>
+</div>
   <!-- SKILLS -->
   <section id="skills">
-    <div class="section-header">
-      <div class="section-eyebrow">Skills</div>
-      <h2 class="section-title">Tech Stack & Tools</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-card-title">Cloud Platforms</div>
-        <ul class="skill-items">
-          <li>AWS (EC2, S3, IAM, CloudWatch) — Production Projects</li>
-          <li>Microsoft Azure — Multi-Cloud Systems</li>
-          <li>Oracle Cloud Infrastructure — Intermediate</li>
-          <li>Multi-Cloud Architecture & Orchestration</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <div class="skill-card-title">Programming & Automation</div>
-        <ul class="skill-items">
-          <li>Python — Cloud Automation & Orchestration</li>
-          <li>Terraform — IaC & Multi-Cloud Deployment</li>
-          <li>Bash/Shell — CI/CD Automation</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <div class="skill-card-title">Containers & DevOps</div>
-        <ul class="skill-items">
-          <li>Docker — Containerization</li>
-          <li>Kubernetes — Cluster Management</li>
-          <li>Git/GitHub — Version Control & CI/CD</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <div class="section-header">
+    <div class="section-eyebrow">Skills</div>
+    <h2 class="section-title">Tech Stack & Tools</h2>
+  </div>
 
+  <div class="skills-grid">
+
+    <!-- CLOUD -->
+    <div class="skill-card">
+      <div class="skill-card-title">Cloud & Multi-Cloud</div>
+      <ul class="skill-items">
+        <li>AWS (EC2, S3, IAM, CloudWatch) — Production Systems</li>
+        <li>Microsoft Azure — Multi-Cloud Deployments</li>
+        <li>Google Cloud Platform — Monitoring & Integration</li>
+        <li>Multi-Cloud Architecture & Control Plane Design</li>
+      </ul>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="skill-card">
+      <div class="skill-card-title">Security & Networking</div>
+      <ul class="skill-items">
+        <li>JWT Authentication & Token Blacklisting</li>
+        <li>Role-Based Access Control (RBAC)</li>
+        <li>Network Scanning (Nmap, Scapy)</li>
+        <li>IDS / Firewall Evasion Techniques</li>
+      </ul>
+    </div>
+
+    <!-- PROGRAMMING -->
+    <div class="skill-card">
+      <div class="skill-card-title">Programming & APIs</div>
+      <ul class="skill-items">
+        <li>Python — Automation, Monitoring, Security Tools</li>
+        <li>Django & FastAPI — Secure Backend APIs</li>
+        <li>Node.js & Express — Real-Time Systems</li>
+        <li>REST API Design & Integration</li>
+      </ul>
+    </div>
+
+    <!-- DEVOPS -->
+    <div class="skill-card">
+      <div class="skill-card-title">DevOps & Infrastructure</div>
+      <ul class="skill-items">
+        <li>Terraform — Infrastructure as Code</li>
+        <li>Docker — Containerization</li>
+        <li>Kubernetes — Container Orchestration</li>
+        <li>CI/CD Pipelines & Automation</li>
+      </ul>
+    </div>
+
+    <!-- REAL-TIME / SYSTEMS -->
+    <div class="skill-card">
+      <div class="skill-card-title">Systems & Real-Time</div>
+      <ul class="skill-items">
+        <li>PID Control Systems (CPS Project)</li>
+        <li>State Machine Design</li>
+        <li>Real-Time Monitoring & Scheduling</li>
+        <li>Fault Injection & System Simulation</li>
+      </ul>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="skill-card">
+      <div class="skill-card-title">Tools & Collaboration</div>
+      <ul class="skill-items">
+        <li>Git & GitHub — Version Control</li>
+        <li>Linux (Kali, Ubuntu)</li>
+        <li>Socket.io — Real-Time Communication</li>
+        <li>Monitoring & Logging Systems</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
   <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-header">
-      <div class="section-eyebrow">Experience</div>
-      <h2 class="section-title">Work History</h2>
-    </div>
-    <div class="exp-grid">
-      <div>
-        <div class="exp-col-title">Tech Mahindra</div>
-        <div class="exp-item">
-          <div class="exp-period">2020 – 2023</div>
-          <div class="exp-role">Cloud Engineer</div>
-          <div class="exp-org">Tech Mahindra, India</div>
-          <div class="exp-desc">
-            Managed AWS and Azure workloads, resolved 50+ daily incidents, implemented automation scripts, and enhanced infrastructure security.
-          </div>
+ <section id="experience">
+  <div class="section-header">
+    <div class="section-eyebrow">Experience</div>
+    <h2 class="section-title">Work History</h2>
+  </div>
+
+  <div class="exp-grid">
+
+    <!-- LEFT COLUMN -->
+    <div>
+      <div class="exp-col-title">Professional</div>
+
+      <!-- Cybersecurity Intern -->
+      <div class="exp-item">
+        <div class="exp-period">March 2024 – Present</div>
+        <div class="exp-role">Cybersecurity Intern</div>
+        <div class="exp-org">Future Interns, Sheffield, UK</div>
+        <div class="exp-desc">
+          Gaining hands-on experience in real-world cybersecurity concepts including threat analysis and risk assessment. 
+          Working with industry-standard tools and vulnerability awareness techniques while strengthening knowledge of 
+          cloud security and secure system practices.
         </div>
       </div>
-      <div>
-        <div class="exp-col-title">Academic</div>
-        <div class="exp-item">
-          <div class="exp-period">2023 – Present</div>
-          <div class="exp-role">MSc Computing Student</div>
-          <div class="exp-org">Sheffield Hallam University, UK</div>
-          <div class="exp-desc">
-            Specialising in multi-cloud architecture, security automation, and resilient infrastructure design.
-          </div>
+
+      <!-- Independent Engineer -->
+      <div class="exp-item">
+        <div class="exp-period">March 2024 – Present</div>
+        <div class="exp-role">Independent Software & Security Engineer</div>
+        <div class="exp-org">Self-Employed</div>
+        <div class="exp-desc">
+          Designed and built full-stack software and cybersecurity projects alongside MSc studies. 
+          Delivered projects including multi-cloud orchestration systems, secure REST APIs, IDS evasion tools, 
+          real-time CPS simulations, and fault management systems.
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- RIGHT COLUMN -->
+    <div>
+      <div class="exp-col-title">Previous Roles</div>
+
+      <!-- Floor Staff Lead -->
+      <div class="exp-item">
+        <div class="exp-period">August 2023 – Present</div>
+        <div class="exp-role">Floor Staff Lead</div>
+        <div class="exp-org">Cambridge Street Collective, Sheffield, UK</div>
+        <div class="exp-desc">
+          Led daily operations serving 300+ customers in a fast-paced multi-vendor environment. 
+          Managed staff scheduling, real-time operational decisions, and acted as first point of contact 
+          for escalations while coordinating communication across teams.
+        </div>
+      </div>
+
+      <!-- Tech Mahindra -->
+      <div class="exp-item">
+        <div class="exp-period">August 2020 – April 2023</div>
+        <div class="exp-role">Customer Support Engineer</div>
+        <div class="exp-org">Tech Mahindra, India</div>
+        <div class="exp-desc">
+          Resolved 50+ technical issues daily via phone, chat, and email, achieving high customer satisfaction. 
+          Troubleshot access issues, software failures, and connectivity problems, while assisting users in 
+          cloud applications and contributing to internal documentation and knowledge base systems.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- CONTACT -->
   <section id="contact">
